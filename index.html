@@ -58,12 +58,25 @@
     }
   </style>
 </head>
+  <script>
+  const btn = document.getElementById("playBtn");
+  const music = document.getElementById("musica");
+
+  btn.addEventListener("click", () => {
+    music.play();
+    btn.style.display = "none";
+  });
+  </script>
+  
 <body>
 
   <!-- 🎵 Música -->
-  <audio id="musica">
-    <source src="https://www.chosic.com/wp-content/uploads/2020/05/Love.mp3" type="audio/mpeg">
-  </audio>
+  <button id="playBtn">💖 Toca aquí 💖</button>
+
+<audio id="musica" loop>
+  <source src="https://www.chosic.com/wp-content/uploads/2020/05/Love.mp3" type="audio/mpeg">
+</audio>
+  
 
   <div class="card">
     <h1>💖 Una pregunta importante 💖</h1>
