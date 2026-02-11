@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Una pregunta importante 💖</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: white;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .card {
+      position: relative;
+      background: rgba(255,255,255,0.15);
+      padding: 26px;
+      border-radius: 20px;
+      max-width: 360px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      z-index: 2;
+    }
+    h1 { font-size: 22px; margin-bottom: 12px; }
+    p { font-size: 15px; margin-bottom: 14px; }
+    button {
+      margin-top: 10px;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      background-color: white;
+      color: #ff4f7a;
+      font-weight: bold;
+    }
+    #respuesta {
+      margin-top: 16px;
+      font-size: 16px;
+      display: none;
+    }
+
+    /* 💖 Corazones */
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      font-size: 18px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.8;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 0.8; }
+      100% { transform: translateY(-110vh) scale(1.4); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🎵 Música -->
+  <audio id="musica">
+    <source src="https://www.chosic.com/wp-content/uploads/2020/05/Love.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="card">
+    <h1>💖 Una pregunta importante 💖</h1>
+
+    <p>
+      Antes de que respondas…<br>
+      quiero que sepas que contigo todo se siente más bonito,<br>
+      y este 14 de febrero quiero vivirlo a tu lado ❤️
+    </p>
+
+    <button onclick="acepta()">💘 Sí, quiero 💘</button>
+
+    <div id="respuesta">
+      🥹❤️ Sabía que dirías que sí <br><br>
+      Te veo el sábado a las 6:30 💕<br>
+      Agradezco tu respuesta<br>
+      Te amo mucho
+    </div>
+  </div>
+
+  <script>
+    function acepta() {
+      document.getElementById("respuesta").style.display = "block";
+      document.getElementById("musica").play();
+      lanzarCorazones();
+    }
+
+    function lanzarCorazones() {
+      for (let i = 0; i < 25; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (4 + Math.random() * 3) + "s";
